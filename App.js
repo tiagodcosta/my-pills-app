@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, StyleSheet, View } from 'react-native'
 import { Container, Button, Content } from 'native-base'
+import { Font, AppLoading } from 'expo'
 import firebase from 'firebase'
 
 import HeaderMain from './components/Header'
@@ -19,11 +20,21 @@ const config = {
 
 export default class App extends React.Component {
 
-  componentWillMount() {
-    firebase.initializeApp(config);
+  state = {
+    fontsAreLoaded: false,
+  };
+
+  async componentWillMount() {
+    await Font.loadAsync({
+      'Ionicons': require('native-base/Fonts/Ionicons.ttf'),
+    });
+    this.setState({ fontsAreLoaded: true});
   }
 
   render() {
+    if (!this.state.fontsAreLoaded) {
+      return <AppLoading />;
+    }
     return (
       <Container>
         <HeaderMain />

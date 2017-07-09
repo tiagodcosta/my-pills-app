@@ -5,6 +5,7 @@ import styled from 'styled-components/native'
 
 
 export default class HeaderMain extends Component {
+
   render(){
     return(
       <Header>
