@@ -7,6 +7,7 @@ import firebase from 'firebase'
 import HeaderMain from './components/Header'
 import ListHome from './components/ListHome'
 import AddButton from './components/AddButton'
+import Login from './components/Login'
 
 const config = {
     apiKey: "AIzaSyDq-SroilBDUM4dZbvz7UqXC-lK6z-95Zo",
@@ -39,11 +40,12 @@ export default class App extends React.Component {
       <Container>
         <HeaderMain />
         <Content padder>
-        <View style={{alignItems: 'center'}}>
-          <Text style={styles.titleText}>My medications</Text>
+        <View style={{alignItems: 'center', marginBottom: 30}}>
+          <Text style={styles.titleText}>Login or create account</Text>
         </View>
-        <ListHome />
-        <AddButton />
+        {/* <ListHome />
+        <AddButton /> */}
+        <Login />
       </Content>
       </Container>
     );
