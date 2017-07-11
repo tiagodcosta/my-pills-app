@@ -59,15 +59,15 @@ export default class Login extends Component {
              <Text style={styles.titleText}>Login or create account</Text>
            </View>
            <Form>
-             <Item>
+            <Item>
                <Input placeholder="Username" value={this.state.email} onChangeText={email => this.setState({ email })} />
-             </Item>
-             <Item last>
+            </Item>
+            <Item last>
                <Input placeholder="Password" value={this.state.password} onChangeText={password => this.setState({ password })} password={true} />
-             </Item>
-             <View style={{alignItems: 'center', marginTop: 10}}>
-             <Text style={{color: '#e74c3c'}}>{this.state.error}</Text>
-           </View>
+            </Item>
+            <View style={{alignItems: 'center', marginTop: 10}}>
+               <Text style={{color: '#e74c3c'}}>{this.state.error}</Text>
+            </View>
               {this.renderLoader()}
            </Form>
          </Content>

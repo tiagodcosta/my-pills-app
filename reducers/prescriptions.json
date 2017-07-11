@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Lexapro",
+    "quantity": "1",
+    "type": "pills",
+    "frequency": "everyday",
+    "notes": "Take the medicine in the mornings"
+  },
+  {
+    "id": 2,
+    "name": "Januvia",
+    "quantity": "2",
+    "type": "pills",
+    "frequency": "Tuesdays",
+    "notes": "Drink plenty of water"
+  },
+  {
+    "id": 3,
+    "name": "Lantus",
+    "quantity": "4",
+    "type": "pills",
+    "frequency": "everyweel",
+    "notes": "Take the medicine in the nights"
+  }
+]

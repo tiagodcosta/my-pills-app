@@ -4,11 +4,14 @@ import { Container, Button, Content } from 'native-base'
 import { Font, AppLoading } from 'expo'
 
 import firebase from 'firebase'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 
 import HeaderMain from './components/Header'
 import Login from './components/Login'
 import ListContainer from './components/ListContainer'
 import Loader from './components/Loader'
+import reducers from './reducers/PrescriptionsReducer' //temporary
 
 const config = {
     apiKey: "AIzaSyDq-SroilBDUM4dZbvz7UqXC-lK6z-95Zo",
@@ -19,6 +22,7 @@ const config = {
     messagingSenderId: "606105974383"
 }
 
+const store = createStore(reducers)
 
 export default class App extends React.Component {
 
@@ -61,9 +65,11 @@ export default class App extends React.Component {
       <Container>
         <HeaderMain />
         <Content padder>
-        <View>
-          {this.renderInitialView()}
-        </View>
+        <Provider store={store}>
+            <View>
+              {this.renderInitialView()}
+            </View>
+        </Provider>
       </Content>
       </Container>
     );
