@@ -1,13 +1,14 @@
 import React from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { Container, Button, Content } from 'native-base'
 import { Font, AppLoading } from 'expo'
+
 import firebase from 'firebase'
 
 import HeaderMain from './components/Header'
-import ListHome from './components/ListHome'
-import AddButton from './components/AddButton'
 import Login from './components/Login'
+import ListContainer from './components/ListContainer'
+import Loader from './components/Loader'
 
 const config = {
     apiKey: "AIzaSyDq-SroilBDUM4dZbvz7UqXC-lK6z-95Zo",
@@ -22,14 +23,34 @@ const config = {
 export default class App extends React.Component {
 
   state = {
-    fontsAreLoaded: false,
+    loggedIn: null,
+    fontsAreLoaded: false
   };
 
   async componentWillMount() {
+    firebase.initializeApp(config);
+
     await Font.loadAsync({
       'Ionicons': require('native-base/Fonts/Ionicons.ttf'),
     });
-    this.setState({ fontsAreLoaded: true});
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({loggedIn: true, fontsAreLoaded: true})
+      } else {
+        this.setState({loggedIn: false, fontsAreLoaded: true})
+      }
+    })
+  }
+
+  renderInitialView() {
+    switch (this.state.loggedIn && this.state.fontsAreLoaded) {
+      case true:
+        return <ListContainer />
+      case false:
+        return <Login />
+      default:
+        return <Loader size="large" />
+    }
   }
 
   render() {
@@ -40,21 +61,11 @@ export default class App extends React.Component {
       <Container>
         <HeaderMain />
         <Content padder>
-        <View style={{alignItems: 'center', marginBottom: 30}}>
-          <Text style={styles.titleText}>Login or create account</Text>
+        <View>
+          {this.renderInitialView()}
         </View>
-        {/* <ListHome />
-        <AddButton /> */}
-        <Login />
       </Content>
       </Container>
     );
   }
 }
-
-const styles  = StyleSheet.create({
-  titleText: {
-    fontSize: 20,
-    marginTop: 20
-  }
-})
