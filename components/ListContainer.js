@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { Container, Content, List, ListItem, Text } from 'native-base'
+import { Container, Content, List, ListItem, Text, Icon } from 'native-base'
 
+import { connect } from 'react-redux'
+import * as actions from '../actions'
 
-export default class ListContainer extends Component {
+class ListContainer extends Component {
+  static navigationOptions = {
+      tabBarLabel: 'Prescriptions',
+      tabBarIcon: ({ tintColor }) =>
+        <Icon name="medkit" />
+  }
+
   render() {
-    const items = ['Lexapro', 'Headache', 'CleanTeeth', 'BestDay', 'NoBabies']
+    const items = this.props.prescriptions
 
     return(
       <View>
@@ -13,7 +21,8 @@ export default class ListContainer extends Component {
           <List dataArray={items}
                 renderRow={(item)=>
                   <ListItem>
-                    <Text>{item}</Text>
+                    <Icon name="arrow-dropright-circle" />
+                    <Text style={{marginLeft: 5}}>{item.name}</Text>
                   </ListItem>
                 }>
           </List>
@@ -21,3 +30,9 @@ export default class ListContainer extends Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {prescriptions: state.prescriptions}
+}
+
+export default connect(mapStateToProps)(ListContainer);

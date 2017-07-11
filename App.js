@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import { Container, Button, Content } from 'native-base'
+import { Container, Button, Content, Footer } from 'native-base'
 import { Font, AppLoading } from 'expo'
 
 import firebase from 'firebase'
@@ -9,7 +9,7 @@ import { createStore } from 'redux'
 
 import HeaderMain from './components/Header'
 import Login from './components/Login'
-import ListContainer from './components/ListContainer'
+import Navigation  from './components/Navigation'
 import Loader from './components/Loader'
 import reducers from './reducers/PrescriptionsReducer' //temporary
 
@@ -49,7 +49,7 @@ export default class App extends React.Component {
   renderInitialView() {
     switch (this.state.loggedIn && this.state.fontsAreLoaded) {
       case true:
-        return <ListContainer />
+        return <Navigation />
       case false:
         return <Login />
       default:
