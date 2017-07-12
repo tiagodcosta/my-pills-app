@@ -4,13 +4,13 @@ import ListContainer from './ListContainer'
 import Report from './Report'
 import AddItem from './AddItem'
 
-
 const Navigation = TabNavigator({
   Prescriptions: { screen: ListContainer },
   Add: { screen: AddItem },
   Report: { screen: Report }
 }, {
   tabBarOptions: {
+    tabBarPosition: 'bottom',
     activeTintColor: 'white',
     inactiveTintColor: 'green',
     swipeEnabled: true,
