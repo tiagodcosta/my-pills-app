@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
-import { View, TouchableWithoutFeedback, StyleSheet, ListView } from 'react-native'
+import { View, StyleSheet, ListView } from 'react-native'
 import { Container, Content, Icon, Text } from 'native-base'
 
 import { connect } from 'react-redux'
-import * as actions from '../actions'
+import _ from 'lodash'
 
 import ListItem from './ListItem'
 import ItemDetail from './ItemDetail'
+import { loadInitialItems } from '../actions'
 
 class ListContainer extends Component {
   static navigationOptions = {
       tabBarLabel: 'Prescriptions',
       tabBarIcon: ({ tintColor }) =>
         <Icon name="medkit" />
+  }
+
+  componentWillMount() {
+    this.props.loadInitialItems();
   }
 
   renderInitialView() {
@@ -50,10 +55,14 @@ class ListContainer extends Component {
 }
 
 const mapStateToProps = state => {
+  const prescriptions = _.map(state.prescriptions, (val, uid) => {
+    return { ...val, uid };
+  })
+
   return {
-    prescriptions: state.prescriptions,
+    prescriptions,
     detailView: state.detailView
-  }
+  };
 }
 
-export default connect(mapStateToProps)(ListContainer);
+export default connect(mapStateToProps, {loadInitialItems})(ListContainer);

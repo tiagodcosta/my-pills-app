@@ -5,29 +5,30 @@ import { Container, Content, Text, Icon, Thumbnail, Button } from 'native-base'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 
+import UpdateItem from './UpdateItem'
+import ItemDetailView from './ItemDetailView'
+
 class ItemDetail extends Component {
+  renderDetails() {
+    if(this.props.toUpdate) {
+      return <UpdateItem />
+    } else {
+      return <ItemDetailView />
+    }
+  }
 
   render() {
-
     return(
-        <Container>
-          <Content showsVerticalScrollIndicator={false}>
-              <Thumbnail square source={{uri: '../images/test-small.jpg'}} />
-              <Text>{this.props.prescription.name}</Text>
-              <Text>{this.props.prescription.quantity}</Text>
-          <View>
-              <Text>{this.props.prescription.type}</Text>
-              <Text>{this.props.prescription.notes}</Text>
-          </View>
-          </Content>
-        </Container>
+        <View showsVerticalScrollIndicator={false}>
+            {this.renderDetails()}
+        </View>
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    prescription: state.itemSelected
+    toUpdate: state.toUpdate
   }
 }
 

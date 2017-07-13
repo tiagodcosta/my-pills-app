@@ -24,7 +24,7 @@ const config = {
     messagingSenderId: "606105974383"
 }
 
-const store = createStore(reducers)
+const store = createStore(reducers, applyMiddleware(Thunk));
 
 export default class App extends React.Component {
 

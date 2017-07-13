@@ -6,16 +6,16 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 
 
-class AddItem extends Component {
+class UpdateItem extends Component {
   static navigationOptions = {
       tabBarLabel: 'Add',
       tabBarIcon: ({ tintColor }) =>
         <Icon name="add-circle" />
   }
-  onAddPress(){
-    const { name, quantity, type, frequency, notes } = this.props
+  onUpdatePress(){
+    const { name, quantity, type, frequency, notes, uid } = this.props
 
-    this.props.createNewItem({name, quantity, type, frequency, notes})
+    this.props.saveItem({name, quantity, type, frequency, notes, uid })
 
     this.props.navigation.navigate('Prescriptions')
   }
@@ -39,7 +39,7 @@ class AddItem extends Component {
            <Item>
              <Input placeholder="Notes" value={this.props.notes} onChangeText={value => this.props.formUpdate({prop: 'notes', value})} />
            </Item>
-           <Button onPress={this.onAddPress.bind(this)}><Text>Add prescription</Text></Button>
+           <Button onPress={this.onUpdatePress.bind(this)}><Text>Update</Text></Button>
         </Form>
       </Content>
     )
@@ -47,11 +47,11 @@ class AddItem extends Component {
 }
 
 const mapStateToProps = state => {
-  const { name, quantity, type, frequency, notes } = state
+  const { name, quantity, type, frequency, notes, uid } = state
 
   return {
-    name, quantity, type, frequency, notes
+    name, quantity, type, frequency, notes, uid
   }
 }
 
-export default connect(mapStateToProps, actions)(AddItem)
+export default connect(mapStateToProps, actions)(UpdateItem)
