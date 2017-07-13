@@ -5,7 +5,8 @@ import { Font, AppLoading } from 'expo'
 
 import firebase from 'firebase'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import Thunk from 'redux-thunk'
 
 import HeaderMain from './components/Header'
 import Login from './components/Login'

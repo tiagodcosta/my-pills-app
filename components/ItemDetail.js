@@ -7,33 +7,17 @@ import * as actions from '../actions'
 
 class ItemDetail extends Component {
 
-  handleClick = (link) => {
-    Linking.canOpenURL(link).then(supported => {
-        if(supported) {
-            Linking.openURL(link);
-        } else {
-          console.log("I can't open" + link);
-        }
-    })
-  }
-
   render() {
 
     return(
         <Container>
           <Content showsVerticalScrollIndicator={false}>
               <Thumbnail square source={{uri: '../images/test-small.jpg'}} />
-              <Text>I'm item detail</Text>
-              <Text>{this.props.prescriptions.name}</Text>
-              <Text>{this.props.prescriptions.quantity}</Text>
+              <Text>{this.props.prescription.name}</Text>
+              <Text>{this.props.prescription.quantity}</Text>
           <View>
-              <Text>{this.props.prescriptions.type}</Text>
-              <Text>{this.props.prescriptions.notes}</Text>
-          </View>
-          <View>
-            <Button onPress={() => {this.handleClick(`mailto:#`)}}>
-                <Text>Mail</Text>
-            </Button>
+              <Text>{this.props.prescription.type}</Text>
+              <Text>{this.props.prescription.notes}</Text>
           </View>
           </Content>
         </Container>
@@ -43,8 +27,7 @@ class ItemDetail extends Component {
 
 const mapStateToProps = state => {
   return {
-    prescriptions: state.prescriptions,
-    itemSelected: state.itemSelected
+    prescription: state.itemSelected
   }
 }
 

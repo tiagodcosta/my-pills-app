@@ -19,7 +19,4 @@ const ListItem = (props) => {
   )
 }
 
-
-
-
 export default connect(null, actions)(ListItem)
