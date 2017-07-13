@@ -1,7 +1,10 @@
 import { StackNavigator, TabNavigator } from 'react-navigation'
+import { Footer, FooterTab, Button, Icon, Text } from 'native-base'
+
 import ListContainer from './ListContainer'
 import Report from './Report'
 import AddItem from './AddItem'
+
 
 const Navigation = TabNavigator({
   Prescriptions: { screen: ListContainer },
@@ -10,13 +13,30 @@ const Navigation = TabNavigator({
 }, {
   tabBarOptions: {
     tabBarPosition: 'bottom',
-    activeTintColor: 'white',
-    inactiveTintColor: 'green',
-    swipeEnabled: true,
-    showLabel: true,
-    style: {
-      backgroundColor: 'red',
-    }
+    animationEnabled: true,
+    tabBarComponent: props => {
+    return (
+      <Footer>
+        <FooterTab>
+          <Button
+            vertical
+            active={props.navigationState.index === 0}
+            onPress={() => props.navigation.navigate("Prescriptions")}>
+          </Button>
+          <Button
+            vertical
+            active={props.navigationState.index === 1}
+            onPress={() => props.navigation.navigate("AddItem")}>
+          </Button>
+          <Button
+            vertical
+            active={props.navigationState.index === 2}
+            onPress={() => props.navigation.navigate("Report")}>
+          </Button>
+        </FooterTab>
+      </Footer>
+    );
+  }
   }
 })
 

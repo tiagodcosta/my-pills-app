@@ -64,16 +64,12 @@ export default class App extends React.Component {
       return <AppLoading />;
     }
     return (
-      <Container>
-        <HeaderMain />
-        <Content padder>
-          <Provider store={store}>
-            <View>
-              {this.renderInitialView()}
-            </View>
-          </Provider>
-        </Content>
-      </Container>
+      <Provider store={store}>
+          <Container>
+            <HeaderMain />
+            {this.renderInitialView()}
+          </Container>
+      </Provider>
     );
   }
 }
