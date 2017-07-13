@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import { Container, Button, Content, Footer } from 'native-base'
+import { Container, Button, Content, Footer, FooterTab, Label, Item } from 'native-base'
 import { Font, AppLoading } from 'expo'
 
 import firebase from 'firebase'
@@ -9,8 +9,9 @@ import { createStore } from 'redux'
 
 import HeaderMain from './components/Header'
 import Login from './components/Login'
-import Navigation  from './components/Navigation'
+import Navigation from './components/Navigation'
 import Loader from './components/Loader'
+import ListContainer from './components/ListContainer'
 import reducers from './reducers/PrescriptionsReducer' //temporary
 
 const config = {
@@ -65,12 +66,12 @@ export default class App extends React.Component {
       <Container>
         <HeaderMain />
         <Content padder>
-        <Provider store={store}>
+          <Provider store={store}>
             <View>
               {this.renderInitialView()}
             </View>
-        </Provider>
-      </Content>
+          </Provider>
+        </Content>
       </Container>
     );
   }

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { View, TouchableWithoutFeedback } from 'react-native'
-import { Container, Content, List, ListItem, Text, Icon } from 'native-base'
+import { View, TouchableWithoutFeedback, StyleSheet, ListView } from 'react-native'
+import { Container, Content, Icon, Text } from 'native-base'
 
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 
-import { ItemDetail } from './ItemDetail'
+import ListItem from './ListItem'
+import ItemDetail from './ItemDetail'
 
 class ListContainer extends Component {
   static navigationOptions = {
@@ -14,21 +15,36 @@ class ListContainer extends Component {
         <Icon name="medkit" />
   }
 
-  render() {
-    const items = this.props.prescriptions
+  renderInitialView() {
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+      });
 
+      this.dataSource = ds.cloneWithRows(this.props.prescriptions)
+
+      if(this.props.detailView === true) {
+          return  <ItemDetail />
+      } else {
+          return(
+              <View>
+                  <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20}}>List of medications</Text>
+                  <ListView
+                    enableEmptySections={true}
+                    dataSource={this.dataSource}
+                    renderRow={(rowData) =>
+                      <ListItem prescriptions={rowData} />
+                    }
+                  />
+             </View>
+          )
+       }
+    }
+
+  render() {
     return(
       <View>
-          <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20}}>List of medications</Text>
-          <List dataArray={items}
-                renderRow={(item)=>
-                  <ListItem onPress={() => props.selectItem(props.prescriptions)}>
-                    <Icon name="arrow-dropright-circle" />
-                    <Text style={{marginLeft: 5}}>{item.name}</Text>
-                  </ListItem>
-                }>
-          </List>
-        </View>
+          {this.renderInitialView()}
+      </View>
     )
   }
 }
@@ -36,7 +52,7 @@ class ListContainer extends Component {
 const mapStateToProps = state => {
   return {
     prescriptions: state.prescriptions,
-    ItemDetail: state.detailView
+    detailView: state.detailView
   }
 }
 

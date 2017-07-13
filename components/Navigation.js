@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import { StackNavigator, TabNavigator } from 'react-navigation'
 import ListContainer from './ListContainer'
 import Report from './Report'

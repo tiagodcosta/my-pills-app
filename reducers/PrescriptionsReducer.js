@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export default (state = initialState, action ) => {
-  switch (action.tyle) {
+  switch (action.type) {
 
     case 'SELECTED_PRESCRIPTION':
         return {

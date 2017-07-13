@@ -18,17 +18,17 @@ class ItemDetail extends Component {
   }
 
   render() {
-    const items = this.props.prescriptions
 
     return(
         <Container>
           <Content showsVerticalScrollIndicator={false}>
               <Thumbnail square source={{uri: '../images/test-small.jpg'}} />
-              <Text>{this.props.item.name}</Text>
-              <Text>{this.props.item.quantity}</Text>
+              <Text>I'm item detail</Text>
+              <Text>{this.props.prescriptions.name}</Text>
+              <Text>{this.props.prescriptions.quantity}</Text>
           <View>
-              <Text>{this.props.item.type}</Text>
-              <Text>{this.props.item.notes}</Text>
+              <Text>{this.props.prescriptions.type}</Text>
+              <Text>{this.props.prescriptions.notes}</Text>
           </View>
           <View>
             <Button onPress={() => {this.handleClick(`mailto:#`)}}>
