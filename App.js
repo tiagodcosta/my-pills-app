@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import { Container, Button, Content, Footer, FooterTab, Label, Item } from 'native-base'
+import { Container } from 'native-base'
 import { Font, AppLoading } from 'expo'
 
 import firebase from 'firebase'
