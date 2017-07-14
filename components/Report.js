@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
-import { Icon } from 'native-base'
+import { Icon, Container, Text } from 'native-base'
 
 class Report extends Component {
   static navigationOptions = {
       tabBarLabel: 'Report',
-      tabBarIcon: ({ tintColor }) => 
+      tabBarIcon: ({ tintColor }) =>
         <Icon name="clipboard" />
   }
 
   render(){
     return (
-      <View>
+      <Container>
         <Text>Hello Report</Text>
-      </View>
+      </Container>
     )
   }
 }

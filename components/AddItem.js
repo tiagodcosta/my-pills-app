@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
-import { Icon, Content, Container, Button, Form, Item, Input } from 'native-base'
+import { Icon, Content, Container, Button, Form, Item, Input, Text } from 'native-base'
 
 import { connect } from 'react-redux'
 import * as actions from '../actions'
@@ -22,7 +21,8 @@ class AddItem extends Component {
 
   render(){
     return (
-      <Content showsVerticalScrollIndicator={false}>
+      <Container padder showsVerticalScrollIndicator={false}>
+        <Content>
         <Form>
            <Item>
              <Input placeholder="Name" value={this.props.name} onChangeText={value => this.props.formUpdate({prop: 'name', value})}/>
@@ -36,12 +36,13 @@ class AddItem extends Component {
            <Item>
              <Input placeholder="Frequency" value={this.props.frequency}  onChangeText={value => this.props.formUpdate({prop: 'frequency', value})}/>
            </Item>
-           <Item>
+           <Item last>
              <Input placeholder="Notes" value={this.props.notes} onChangeText={value => this.props.formUpdate({prop: 'notes', value})} />
            </Item>
            <Button onPress={this.onAddPress.bind(this)}><Text>Add prescription</Text></Button>
         </Form>
       </Content>
+      </Container>
     )
   }
 }
