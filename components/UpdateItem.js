@@ -17,12 +17,11 @@ class UpdateItem extends Component {
 
     this.props.saveItem({name, quantity, type, frequency, notes, uid })
 
-    this.props.navigation.navigate('Prescriptions')
   }
 
   render(){
     return (
-      <Content showsVerticalScrollIndicator={false}>
+      <View showsVerticalScrollIndicator={false}>
         <Form>
            <Item>
              <Input placeholder="Name" value={this.props.name} onChangeText={value => this.props.formUpdate({prop: 'name', value})}/>
@@ -41,7 +40,7 @@ class UpdateItem extends Component {
            </Item>
            <Button onPress={this.onUpdatePress.bind(this)}><Text>Update</Text></Button>
         </Form>
-      </Content>
+      </View>
     )
   }
 }
