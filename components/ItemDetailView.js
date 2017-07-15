@@ -34,13 +34,13 @@ class ItemDetailView extends Component {
                 <CardItem style={{borderTopColor: '#bdc3c7', borderTopWidth: 1, backgroundColor: '#44ad8e'}}>
                   <Left>
                     <Button transparent onPress={() => {this.props.updateItem(this.props.prescription)}}>
-                      <Icon style={{color: '#8e44ad'}} name="create" />
+                      <Icon style={{color: '#8e44ad', marginRight: 5}} name="create" />
                       <Text style={{color: '#8e44ad'}}>Edit</Text>
                     </Button>
                   </Left>
                   <Right>
                     <Button transparent onPress={() => {this.props.deleteItem(this.props.prescription.uid)}}>
-                      <Icon style={{color: '#8e44ad'}} name="trash" />
+                      <Icon style={{color: '#8e44ad', marginRight: 5}} name="trash" />
                       <Text style={{color: '#8e44ad'}}>Delete</Text>
                     </Button>
                   </Right>

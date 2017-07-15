@@ -5,7 +5,7 @@ class Report extends Component {
   static navigationOptions = {
       tabBarLabel: 'Report',
       tabBarIcon: ({ tintColor }) =>
-        <Icon name="ios-stats" />
+        <Icon style={{color: '#44ad8e' }} name="ios-stats" />
   }
 
   render(){

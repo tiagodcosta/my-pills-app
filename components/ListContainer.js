@@ -13,7 +13,7 @@ class ListContainer extends Component {
   static navigationOptions = {
       tabBarLabel: 'Prescriptions',
       tabBarIcon: ({ tintColor }) =>
-        <Icon name="ios-medkit" />
+        <Icon style={{color: '#44ad8e' }} name="ios-medkit" />
   }
 
   componentWillMount() {

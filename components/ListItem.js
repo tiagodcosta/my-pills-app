@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 
 const ListItem = (props) => {
-  const imgList = require('../images/test-small.jpg')
+  const imgList = require('../images/icon-pills.png')
   return (
     <TouchableWithoutFeedback
         onPress={() => props.selectItem(props.prescriptions)}
