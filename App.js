@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import { Container } from 'native-base'
+import { Container, Drawer, Header, Left, Body, Right, Button, Icon, Title } from 'native-base'
 import { Font, AppLoading } from 'expo'
 
 import firebase from 'firebase'
@@ -8,12 +8,13 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import Thunk from 'redux-thunk'
 
-import HeaderMain from './components/Header'
+import Sidebar from './components/Sidebar'
+// import HeaderMain from './components/Header'
 import Login from './components/Login'
 import Navigation from './components/Navigation'
 import Loader from './components/Loader'
 import ListContainer from './components/ListContainer'
-import reducers from './reducers/PrescriptionsReducer' //temporary
+import reducers from './reducers/PrescriptionsReducer'
 
 const config = {
     apiKey: "AIzaSyDq-SroilBDUM4dZbvz7UqXC-lK6z-95Zo",
@@ -48,6 +49,13 @@ export default class App extends React.Component {
     })
   }
 
+  closeDrawer = () => {
+     this.drawer._root.close()
+  }
+  openDrawer = () => {
+       this.drawer._root.open()
+  }
+
   renderInitialView() {
     switch (this.state.loggedIn && this.state.fontsAreLoaded) {
       case true:
@@ -65,10 +73,29 @@ export default class App extends React.Component {
     }
     return (
       <Provider store={store}>
+        <Drawer
+            ref={(ref) => this.drawer = ref }
+            type="displace"
+            content={<Sidebar />}
+            onClose={this.closeDrawer.bind(this)}
+            onOpen={this.openDrawer.bind(this)}
+            openDrawerOffset={0.2}>
           <Container>
-            <HeaderMain />
+            <Header>
+             <Left>
+               <Button onPress={() => this.openDrawer()} transparent>
+                 <Icon  style={{color: '#8e44ad'}} name='menu' />
+               </Button>
+             </Left>
+             <Body>
+               <Title style={{color: '#8e44ad'}}>My Pills</Title>
+             </Body>
+             <Right>
+             </Right>
+           </Header>
             {this.renderInitialView()}
           </Container>
+        </Drawer>
       </Provider>
     );
   }
