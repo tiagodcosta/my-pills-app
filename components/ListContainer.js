@@ -32,8 +32,8 @@ class ListContainer extends Component {
       } else {
           return(
               <View>
-                  <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20}}>List of medications</Text>
-                  <ListView
+                  <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e'}}>Your list of medications</Text>
+                  <ListView style={{paddingLeft: 5, paddingRight: 5}}
                     enableEmptySections={true}
                     dataSource={this.dataSource}
                     renderRow={(rowData) =>

@@ -9,11 +9,11 @@ export default class HeaderMain extends Component {
        <Left>
        </Left>
        <Body>
-         <Title>My Pills</Title>
+         <Title style={{color: '#8e44ad'}}>My Pills</Title>
        </Body>
        <Right>
          <Button transparent>
-           <Icon name='menu' />
+           <Icon style={{color: '#8e44ad'}} name='menu' />
          </Button>
        </Right>
      </Header>
