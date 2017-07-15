@@ -13,7 +13,7 @@ class ListContainer extends Component {
   static navigationOptions = {
       tabBarLabel: 'Prescriptions',
       tabBarIcon: ({ tintColor }) =>
-        <Icon name="medkit" />
+        <Icon name="ios-medkit" />
   }
 
   componentWillMount() {
@@ -47,9 +47,9 @@ class ListContainer extends Component {
 
   render() {
     return(
-      <View>
+      <Content>
           {this.renderInitialView()}
-      </View>
+      </Content>
     )
   }
 }

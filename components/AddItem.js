@@ -9,7 +9,7 @@ class AddItem extends Component {
   static navigationOptions = {
       tabBarLabel: 'Add',
       tabBarIcon: ({ tintColor }) =>
-        <Icon name="add-circle" />
+        <Icon name="ios-add-circle" />
   }
   onAddPress(){
     const { name, quantity, type, frequency, notes } = this.props
