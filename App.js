@@ -3,12 +3,14 @@ import { Text, View } from 'react-native'
 import { Container, Drawer, Header, Left, Body, Right, Button, Icon, Title } from 'native-base'
 import { Font, AppLoading } from 'expo'
 
+import { Navigator } from 'react-navigation'
+
 import firebase from 'firebase'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import Thunk from 'redux-thunk'
 
-import Sidebar from './components/Sidebar'
+import SideBar from './components/SideBar'
 // import HeaderMain from './components/Header'
 import Login from './components/Login'
 import Navigation from './components/Navigation'
@@ -76,7 +78,7 @@ export default class App extends React.Component {
         <Drawer
             ref={(ref) => this.drawer = ref }
             type="displace"
-            content={<Sidebar />}
+            content={<SideBar navigator={this.navigator} />}
             onClose={this.closeDrawer.bind(this)}
             onOpen={this.openDrawer.bind(this)}
             openDrawerOffset={0.2}>
