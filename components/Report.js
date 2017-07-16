@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Icon, Container, Text } from 'native-base'
+import { Linking, TouchableOpacity, Text } from 'react-native'
+import { Icon, Container, Content, View } from 'native-base'
 
 import { connect } from 'react-redux'
 import _ from 'lodash'
@@ -7,14 +8,16 @@ import _ from 'lodash'
 import { VictoryChart, VictoryBar, VictoryAxis } from 'victory-native'
 import Loader from './Loader'
 
+const name = "lexapro"
+
 const iodineAPIKey = '5654b09181b03100010000301177b120e8464ddf6ca318b260d87754'
-const iodineAPIUrl = 'https://api.iodine.com/drug/lexapro.json'
+const iodineAPIUrl = 'https://api.iodine.com/drug/' + name + '.json'
 
 class Report extends Component {
   constructor() {
     super()
     this.state = {
-      tips: '',
+      tips: [],
       loading: false
     }
   }
@@ -24,8 +27,15 @@ class Report extends Component {
       tabBarIcon: ({ tintColor }) =>
         <Icon style={{color: '#44ad8e' }} name="ios-stats" />
   }
-
-
+  handleClick = (link) => {
+    Linking.canOpenURL(link).then(suppported => {
+        if (supported) {
+            Linking.openURL(link);
+        } else {
+            console.log('Don\'t know how to open URI: ' + link)
+        }
+    })
+  }
 
   componentDidMount() {
     this.setState({
@@ -40,22 +50,33 @@ class Report extends Component {
       }
     })
       .then(response => response.json())
-      .then(drugs => console.log(drugs))
+      .then(tips => this.setState({
+        tips: tips.pharmacistTips,
+        loading: false
+      }))
       .catch(err => console.error('Some error', err))
   }
 
   renderLoader() {
+    const names = this.state.name
+
     if(this.state.loading) {
       return <Loader size="large" />
     } else {
-      return <Text>{this.state.tips}</Text>
+      return <View style={{marginTop: 20}}>
+                <Text style={{marginBottom: 10}}>Information about {name} </Text>
+                <Text style={{marginBottom: 10}}>{this.state.tips}</Text>
+                <Text>Medication information by <TouchableOpacity  style={{ width: 50, height: 13}} onPress={() => { this.handleClick(`https://www.iodine.com`)}}><Text style={{color: '#8e44ad'}}>Iodine</Text></TouchableOpacity></Text>
+            </View>
     }
   }
 
   render() {
     return (
-      <Container>
+      <Container padder>
+        <Content style={{paddingLeft: 5, paddingRight: 5}}>
           {this.renderLoader()}
+        </Content>
       </Container>
     )
   }
