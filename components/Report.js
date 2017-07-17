@@ -6,11 +6,17 @@ import { connect } from 'react-redux'
 import _ from 'lodash'
 import * as actions from '../actions'
 
-import { VictoryChart, VictoryBar, VictoryAxis } from 'victory-native'
+import { VictoryChart, VictoryBar, VictoryAxis, VictoryPie, VictoryContainerComponent } from 'victory-native'
 import Loader from './Loader'
 
 
 class Report extends Component {
+  constructor() {
+    super()
+    this.state = {
+      message: 'Hello New World'
+    }
+  }
   static navigationOptions = {
       tabBarLabel: 'Report',
       tabBarIcon: ({ tintColor }) =>
@@ -26,9 +32,41 @@ class Report extends Component {
   render() {
     return (
       <Container padder>
-        <Content style={{paddingLeft: 5, paddingRight: 5}}>
-          <Text>Hello Report</Text>
-        </Content>
+        {/* <VictoryChart
+          domainPadding={{x: 40}}
+          >
+              <VictoryBar
+                  data={[
+                    { name: "Joan", age: 56},
+                    { name: "Beth", age: 30},
+                    { name: "Bob", age: 45}
+                  ]}
+                  x="name"
+                  y="age"
+              />
+              <VictoryAxis
+                  label="name"
+                  style={{
+                    axisLabel: { padding: 30 }
+                  }}
+                />
+              <VictoryAxis dependentAxis
+                  label="Age"
+                  style={{
+                    axisLabel: { padding: 40 }
+                  }}
+              />
+        </VictoryChart> */}
+        <View>
+        <VictoryPie
+          data={[
+            { x: "Cats", y: 35 },
+            { x: "Dogs", y: 40 },
+            { x: "Birds", y: 55 }
+          ]}
+        />
+      </View>
+        <Text>{this.state.message} </Text>
       </Container>
     )
   }

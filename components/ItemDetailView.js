@@ -120,9 +120,9 @@ class ItemDetailView extends Component {
                 </CardItem>
                   {this.renderLoader()}
                 <CardItem style={{borderTopColor: '#bdc3c7', borderTopWidth: 1, backgroundColor: '#44ad8e'}}>
-                  <Left>
-                    <Text>Medical information from <TouchableOpacity  style={{ width: 50, height: 15}} onPress={() => { this.handleClick(`https://www.iodine.com`)}}><Text style={{color: '#8e44ad'}}>Iodine</Text></TouchableOpacity></Text>
-                  </Left>
+                  <Body>
+                    <Text style={{fontSize: 16}}>Medical information from <TouchableOpacity  style={{ width: 50, height: 15}} onPress={() => { this.handleClick(`https://www.iodine.com`)}}><Text style={{color: '#8e44ad'}}>Iodine</Text></TouchableOpacity></Text>
+                  </Body>
                 </CardItem>
               </Card>
           </Container>
