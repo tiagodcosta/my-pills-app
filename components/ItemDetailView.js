@@ -74,7 +74,8 @@ class ItemDetailView extends Component {
 
   render() {
     return(
-          <Container padder>
+          <Container>
+            <Content showsVerticalScrollIndicator={false}>
               <Card style={{flex: 0, backgroundColor: '#44ad8e'}}>
                 <CardItem style={{borderBottomColor: '#bdc3c7', borderBottomWidth: 1, backgroundColor: '#44ad8e'}}>
                     <Body>
@@ -125,6 +126,7 @@ class ItemDetailView extends Component {
                   </Body>
                 </CardItem>
               </Card>
+            </Content>
           </Container>
         )
       }

@@ -22,7 +22,7 @@ class AddItem extends Component {
   render(){
     return (
       <Container showsVerticalScrollIndicator={false}>
-        <Content>
+        <Content padder>
           <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e'}}>Add new prescription</Text>
         <Form>
            <Item>

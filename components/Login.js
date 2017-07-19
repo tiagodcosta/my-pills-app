@@ -48,15 +48,15 @@ export default class Login extends Component {
     if(this.state.loading) {
       return <Loader size="large" />
     }
-      return <Button style={{marginTop: 30}} onPress={this.onPressButton.bind(this)} block info><Text>login</Text></Button>
+      return <Button style={{marginTop: 30, backgroundColor: '#44ad8e'}} onPress={this.onPressButton.bind(this)} block info><Text>login</Text></Button>
   }
 
   render() {
     return(
       <Container>
-         <Content>
-           <View style={{alignItems: 'center', marginBottom: 30}}>
-             <Text style={styles.titleText}>Login or create account</Text>
+         <Content padder>
+           <View style={{alignItems: 'center', marginTop: 30, marginBottom: 30}}>
+             <Text style={{ fontSize: 20, marginTop: 20, color: '#44ad8e'}}>Login or create account</Text>
            </View>
            <Form>
             <Item>
@@ -75,10 +75,3 @@ export default class Login extends Component {
     )
   }
 }
-
-const styles  = StyleSheet.create({
-  titleText: {
-    fontSize: 20,
-    marginTop: 20
-  }
-})

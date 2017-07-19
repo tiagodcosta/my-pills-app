@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import _ from 'lodash'
 import * as actions from '../actions'
 
-import { VictoryChart, VictoryBar, VictoryAxis, VictoryPie, VictoryContainerComponent } from 'victory-native'
+import { VictoryPie } from 'victory-pie-native'
 import Loader from './Loader'
 
 
@@ -31,7 +31,7 @@ class Report extends Component {
 
   render() {
     return (
-      <Container padder>
+      <Container padder style={{justifyContent: 'center', alignItems: 'center'}}>
         {/* <VictoryChart
           domainPadding={{x: 40}}
           >
@@ -57,16 +57,11 @@ class Report extends Component {
                   }}
               />
         </VictoryChart> */}
-        <View>
         <VictoryPie
-          data={[
-            { x: "Cats", y: 35 },
-            { x: "Dogs", y: 40 },
-            { x: "Birds", y: 55 }
-          ]}
+          width={300}
+          colorScale="warm"
+          data={this.props.prescriptions}
         />
-      </View>
-        <Text>{this.state.message} </Text>
       </Container>
     )
   }
@@ -79,11 +74,7 @@ const mapStateToProps = state => {
 
   const names =
   _.chain(prescriptions)
-  .filter('name')
-  .map(function(o) {
-   return o.name;
-  })
-  .sample()
+  .sortBy(prescriptions, ['name', 'quantity'])
   .value();
 
   return {

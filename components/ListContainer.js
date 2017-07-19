@@ -33,7 +33,7 @@ class ListContainer extends Component {
           return(
               <View>
                   <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e'}}>Your list of medications</Text>
-                  <ListView style={{paddingLeft: 5, paddingRight: 5}}
+                  <ListView
                     enableEmptySections={true}
                     dataSource={this.dataSource}
                     renderRow={(rowData) =>
@@ -47,7 +47,7 @@ class ListContainer extends Component {
 
   render() {
     return(
-      <Content>
+      <Content padder>
           {this.renderInitialView()}
       </Content>
     )

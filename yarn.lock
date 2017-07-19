@@ -1376,7 +1376,7 @@ crc@3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/crc/-/crc-3.3.0.tgz#fa622e1bc388bf257309082d6b65200ce67090ba"
 
-create-react-class@^15.5.2, create-react-class@^15.5.3:
+create-react-class@^15.5.2, create-react-class@^15.5.3, create-react-class@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.0.tgz#ab448497c26566e1e29413e883207d57cfe7bed4"
   dependencies:
@@ -2477,6 +2477,10 @@ lodash.map@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.map/-/lodash.map-4.6.0.tgz#771ec7839e3473d9c4cde28b19394c3562f4f6d3"
 
+lodash.omit@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+
 lodash.once@^4.0.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
@@ -2526,7 +2530,7 @@ lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.10.1, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.0.0, lodash@^4.10.1, lodash@^4.11.1, lodash@^4.12.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -3322,6 +3326,16 @@ react@16.0.0-alpha.12:
     object-assign "^4.1.0"
     prop-types "^15.5.6"
 
+react@^15.3.0:
+  version "15.6.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
+  dependencies:
+    create-react-class "^15.6.0"
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
+
 read-pkg-up@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-1.0.1.tgz#9d63c13276c065918d57f002a57f40a1b643fb02"
@@ -3961,6 +3975,14 @@ victory-chart@^21.1.2:
     lodash "^4.17.4"
     victory-core "^16.3.0"
 
+victory-core-native@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/victory-core-native/-/victory-core-native-3.0.0.tgz#9c23ed86c2776c6341ffd3263b1529259a3a0617"
+  dependencies:
+    lodash.omit "^4.5.0"
+    react "^15.3.0"
+    victory-core "^9.0.2"
+
 victory-core@^16.0.0, victory-core@^16.3.0:
   version "16.3.0"
   resolved "https://registry.yarnpkg.com/victory-core/-/victory-core-16.3.0.tgz#02363c31e51c803832422283e7051047adfa33b9"
@@ -3972,6 +3994,17 @@ victory-core@^16.0.0, victory-core@^16.3.0:
     d3-timer "^1.0.0"
     lodash "^4.17.4"
 
+victory-core@^9.0.2, victory-core@^9.1.1:
+  version "9.2.4"
+  resolved "https://registry.yarnpkg.com/victory-core/-/victory-core-9.2.4.tgz#43b095f46c98e8cda08bf6aaad086297afc10e6e"
+  dependencies:
+    d3-ease "^1.0.0"
+    d3-interpolate "^1.1.1"
+    d3-scale "^1.0.0"
+    d3-shape "^1.0.0"
+    d3-timer "^1.0.0"
+    lodash "^4.12.0"
+
 victory-native@^0.13.0:
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/victory-native/-/victory-native-0.13.0.tgz#ef53d3c7d890cc337a81470f3940d9926949377a"
@@ -3982,6 +4015,14 @@ victory-native@^0.13.0:
     victory-core "^16.0.0"
     victory-pie "^11.0.0"
 
+victory-pie-native@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/victory-pie-native/-/victory-pie-native-1.1.1.tgz#523f0344b339baeac9e8ffedf6ee8ac47fd7486d"
+  dependencies:
+    react "^15.3.0"
+    victory-core-native "^3.0.0"
+    victory-pie "~7.1.2"
+
 victory-pie@^11.0.0:
   version "11.3.0"
   resolved "https://registry.yarnpkg.com/victory-pie/-/victory-pie-11.3.0.tgz#ab948ea813b8fb50fa3ca6bfdbf55785be501720"
@@ -3989,6 +4030,14 @@ victory-pie@^11.0.0:
     d3-shape "^1.0.0"
     lodash "^4.17.4"
     victory-core "^16.3.0"
+
+victory-pie@~7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/victory-pie/-/victory-pie-7.1.2.tgz#86cac270f6d9878cc6b6ca64a1fc3fcc259c6574"
+  dependencies:
+    d3-shape "^1.0.0"
+    lodash "^4.12.0"
+    victory-core "^9.1.1"
 
 vinyl@^0.5.0:
   version "0.5.3"
