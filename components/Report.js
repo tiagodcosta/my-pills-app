@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Linking, TouchableOpacity, Text, ListItem } from 'react-native'
-import { Icon, Container, Content, View } from 'native-base'
+import { Icon, Container, Content, View, Text } from 'native-base'
 
 import { connect } from 'react-redux'
 import _ from 'lodash'
@@ -23,63 +22,35 @@ class Report extends Component {
         <Icon style={{color: '#44ad8e' }} name="ios-stats" />
   }
 
-
-  componentWillMount() {
-    this.props.loadInitialItems();
-
-  }
-
   render() {
+    const dataGraphic = _.toArray(this.props.prescriptionData)
     return (
-      <Container padder style={{justifyContent: 'center', alignItems: 'center'}}>
-        {/* <VictoryChart
-          domainPadding={{x: 40}}
-          >
-              <VictoryBar
-                  data={[
-                    { name: "Joan", age: 56},
-                    { name: "Beth", age: 30},
-                    { name: "Bob", age: 45}
-                  ]}
-                  x="name"
-                  y="age"
-              />
-              <VictoryAxis
-                  label="name"
-                  style={{
-                    axisLabel: { padding: 30 }
-                  }}
-                />
-              <VictoryAxis dependentAxis
-                  label="Age"
-                  style={{
-                    axisLabel: { padding: 40 }
-                  }}
-              />
-        </VictoryChart> */}
+      <Container style={{justifyContent: 'center', alignItems: 'center'}}>
+        <Content padder>
         <VictoryPie
-          width={300}
-          colorScale="warm"
-          data={this.props.prescriptions}
+          width={350}
+          colorScale="green"
+          x="name"
+          y="quantity"
+          data={dataGraphic}
+          labelRadius={135}
         />
+        <Text>How much prescriptions you have consumed. The number is based on the quantity of units consumed</Text>
+      </Content>
       </Container>
     )
   }
 }
 
-const mapStateToProps = state => {
-  const prescriptions = _.map(state.prescriptions, (val, uid) => {
-    return { ...val, uid };
-  })
 
-  const names =
-  _.chain(prescriptions)
-  .sortBy(prescriptions, ['name', 'quantity'])
-  .value();
+const mapStateToProps = state => {
+  const prescriptionData = _.map(state.prescriptions, i => _.pick(i, 'name', 'quantity'))
+
 
   return {
-    names,
-  };
+    prescriptionData,
+  }
+
 }
 
-export default connect(mapStateToProps, actions)(Report);
+export default connect(mapStateToProps)(Report);
