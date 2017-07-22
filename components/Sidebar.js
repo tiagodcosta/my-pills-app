@@ -1,81 +1,60 @@
 import React, { Component } from 'react'
 import { View, ScrollView } from 'react-native'
 import { Text, Content, Left, Right, Container, Icon, List, ListItem } from 'native-base'
-import { StackNavigator } from 'react-navigation'
+import Accordion from 'react-native-collapsible/Accordion'
 
-import About from './About'
-import Credits from './Credits'
-import Contact from './Contact'
-
-const datas = [
+const SECTIONS = [
   {
     name: "About",
-    route: "About",
+    content: "My Pills helps you keep track of your prescriptions",
     icon: "information"
   },
   {
     name: "Credits",
-    route: "Credits",
+    content: "This app was created by Tiago Costa with the help of React Native, Native Base, React Navigation",
     icon: "list"
   },
   {
     name: "Contact",
-    route: "Contact",
+    content: "customer@mypills.com",
     icon: "mail"
   }
 ]
 
 class SideBar extends Component {
+  _renderHeader(section) {
+    return (
+      <View style={{flexDirection: 'row', padding: 5, justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#8e44ad'}}>
+        <Text style={{color: '#44ad8e'}}>{section.name}</Text>
+        <Icon style={{color: '#44ad8e'}} name={section.icon} />
+      </View>
+
+    );
+  }
+
+  _renderContent(section) {
+    return (
+      <View style={{padding: 5, marginBottom: 10}}>
+        <Text style={{color: '#44ad8e', fontSize: 14}}>{section.content}</Text>
+      </View>
+    );
+  }
 
   render() {
-    return(
+    return (
       <Container>
-          <Content bounces={false} style={{ flex: 1, backgroundColor: "#fff", top: 50 }}>
-              <List
-                dataArray={datas}
-                renderRow={data =>
-                  <ListItem button noBorder onPress={() => this.navigation.navigate(data.route)}>
-                    <Left>
-                      <Icon active name={data.icon} style={{ color: "#777", fontSize: 26, width: 30 }} />
-                      <Text>{data.name}</Text>
-                    </Left>
-                    <Right>
-                    </Right>
-                  </ListItem>}
-              />
-          </Content>
+        <Content padder style={{marginTop: 40}}>
+            <Accordion
+              underlayColor="transparent"
+              duration={500}
+              sections={SECTIONS}
+              renderHeader={this._renderHeader}
+              renderContent={this._renderContent}
+            />
+        </Content>
       </Container>
     )
   }
-
 }
-
-
-
-// const SideBar = DrawerNavigator({
-//  About: { screen: About },
-//  Credits: { screen: Credits },
-//  Contact: { screen: Contact }
-//  }, {
-//    drawerWidth: 500,
-//    contentComponent: props =>
-//        <ScrollView>
-//          <List>
-//              <ListItem onPress={() => this.props.navigation.navigate('About')}>
-//                  <Text>About</Text>
-//                  <Right><Icon name="information" /></Right>
-//              </ListItem>
-//              <ListItem onPress={() => this.props.navigation.navigate('Credits')}>
-//                  <Text>Credits</Text>
-//                  <Right><Icon name="list" /></Right>
-//              </ListItem>
-//              <ListItem onPress={() => this.props.navigation.navigate('Contact')}>
-//                  <Text>Contact</Text>
-//                  <Right><Icon name="mail" /></Right>
-//             </ListItem>
-//           </List>
-//      </ScrollView>
-//
-// });
 
 export default SideBar

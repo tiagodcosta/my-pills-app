@@ -3,11 +3,8 @@ import { Icon, Container, Content, View, Text } from 'native-base'
 
 import { connect } from 'react-redux'
 import _ from 'lodash'
-import * as actions from '../actions'
 
 import { VictoryPie } from 'victory-pie-native'
-import Loader from './Loader'
-
 
 class Report extends Component {
   constructor() {
@@ -27,15 +24,15 @@ class Report extends Component {
     return (
       <Container style={{justifyContent: 'center', alignItems: 'center'}}>
         <Content padder>
-        <VictoryPie
-          width={350}
-          colorScale="green"
-          x="name"
-          y="quantity"
-          data={dataGraphic}
-          labelRadius={135}
-        />
-        <Text>How much prescriptions you have consumed. The number is based on the quantity of units consumed</Text>
+          <VictoryPie
+            width={350}
+            colorScale="green"
+            x="name"
+            y="quantity"
+            data={dataGraphic}
+            labelRadius={135}
+          />
+          <Text>How much prescriptions you have consumed. The number is based on the quantity of units consumed</Text>
       </Content>
       </Container>
     )
@@ -45,7 +42,6 @@ class Report extends Component {
 
 const mapStateToProps = state => {
   const prescriptionData = _.map(state.prescriptions, i => _.pick(i, 'name', 'quantity'))
-
 
   return {
     prescriptionData,

@@ -11,11 +11,10 @@ import { createStore, applyMiddleware } from 'redux'
 import Thunk from 'redux-thunk'
 
 import SideBar from './components/SideBar'
-// import HeaderMain from './components/Header'
+
 import Login from './components/Login'
 import Navigation from './components/Navigation'
 import Loader from './components/Loader'
-import ListContainer from './components/ListContainer'
 import reducers from './reducers/PrescriptionsReducer'
 
 const config = {
@@ -52,11 +51,12 @@ export default class App extends React.Component {
   }
 
   closeDrawer = () => {
-     this.drawer._root.close()
+   this.drawer._root.close()
   }
   openDrawer = () => {
        this.drawer._root.open()
   }
+
 
   renderInitialView() {
     switch (this.state.loggedIn && this.state.fontsAreLoaded) {
@@ -75,10 +75,10 @@ export default class App extends React.Component {
     }
     return (
       <Provider store={store}>
-        <Drawer
+          <Drawer
             ref={(ref) => this.drawer = ref }
             type="displace"
-            content={<SideBar navigator={this.navigator} />}
+            content={<SideBar />}
             onClose={this.closeDrawer.bind(this)}
             onOpen={this.openDrawer.bind(this)}
             openDrawerOffset={0.2}>

@@ -1,5 +1,5 @@
-import { StackNavigator, TabNavigator } from 'react-navigation'
-import { Footer, FooterTab, Button, Icon, Text } from 'native-base'
+import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation'
+import { Footer, FooterTab, Button, Icon, Text, Heaer, Left, Body, Right } from 'native-base'
 
 import ListContainer from './ListContainer'
 import Report from './Report'
@@ -19,6 +19,7 @@ const Navigation = TabNavigator({
     animationEnabled: true,
     tabBarComponent: props => {
     return (
+      <Container>
       <Footer>
         <FooterTab>
           <Button
@@ -38,6 +39,7 @@ const Navigation = TabNavigator({
           </Button>
         </FooterTab>
       </Footer>
+    </Container>
     );
   }
   }
