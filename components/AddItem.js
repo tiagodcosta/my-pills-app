@@ -3,7 +3,7 @@ import { Icon, Content, Container, Button, Form, Item, Input, Text, Picker } fro
 
 import { connect } from 'react-redux'
 import * as actions from '../actions'
-
+import PropTypes from 'prop-types'
 
 class AddItem extends Component {
   static navigationOptions = {
@@ -33,6 +33,18 @@ class AddItem extends Component {
            </Item>
            <Item>
              <Picker
+                renderHeader={backAction =>
+                    <Header style={{ backgroundColor: "#fff" }}>
+                      <Left>
+                        <Button transparent onPress={backAction}>
+                          <Icon name="arrow-back" style={{ color: "#8e44ad" }} />
+                        </Button>
+                      </Left>
+                      <Body style={{ flex: 3 }}>
+                        <Title style={{ color: "#8e44ad" }}>Please choose one</Title>
+                      </Body>
+                      <Right />
+                    </Header>}
                 mode="dropdown"
                 placeholder="Unit"
                 selectedValue={this.props.type}
@@ -47,6 +59,18 @@ class AddItem extends Component {
            </Item>
            <Item>
              <Picker
+                renderHeader={backAction =>
+                    <Header style={{ backgroundColor: "#fff" }}>
+                      <Left>
+                        <Button transparent onPress={backAction}>
+                          <Icon name="arrow-back" style={{ color: "#8e44ad" }} />
+                        </Button>
+                      </Left>
+                      <Body style={{ flex: 3 }}>
+                        <Title style={{ color: "#8e44ad" }}>Please choose one</Title>
+                      </Body>
+                      <Right />
+                    </Header>}
                 mode="dropdown"
                 placeholder="Frequency"
                 selectedValue={this.props.frequency}
@@ -68,6 +92,14 @@ class AddItem extends Component {
       </Container>
     )
   }
+}
+
+AddItem.propTypes = {
+    name: PropTypes.string.isRequired,
+    quantity: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    frequency: PropTypes.string.isRequired,
+    notes: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => {

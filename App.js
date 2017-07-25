@@ -54,7 +54,7 @@ export default class App extends React.Component {
    this.drawer._root.close()
   }
   openDrawer = () => {
-       this.drawer._root.open()
+    this.drawer._root.open()
   }
 
 

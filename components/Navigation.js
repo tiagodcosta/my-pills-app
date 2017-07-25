@@ -5,7 +5,6 @@ import ListContainer from './ListContainer'
 import Report from './Report'
 import AddItem from './AddItem'
 
-
 const Navigation = TabNavigator({
   Prescriptions: { screen: ListContainer },
   Add: { screen: AddItem },
@@ -19,7 +18,7 @@ const Navigation = TabNavigator({
     animationEnabled: true,
     tabBarComponent: props => {
     return (
-      <Container>
+    <Container>
       <Footer>
         <FooterTab>
           <Button
