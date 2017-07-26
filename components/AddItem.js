@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Icon, Content, Container, Button, Form, Item, Input, Text, Picker } from 'native-base'
+import { Icon, Content, Container, Button, Form, Item, Input, Text, Picker, Header, Left, Right, Body, Title } from 'native-base'
 
 import { connect } from 'react-redux'
 import * as actions from '../actions'

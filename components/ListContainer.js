@@ -32,14 +32,17 @@ class ListContainer extends Component {
       } else {
           return(
               <View>
-                  <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e'}}>Your list of medications</Text>
+                  <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e'}}>Your list of medications</Text>                  
+                  {(this.dataSource == null) ?
                   <ListView
-                    enableEmptySections={true}
-                    dataSource={this.dataSource}
-                    renderRow={(rowData) =>
-                      <ListItem prescriptions={rowData} />
-                    }
-                  />
+                      enableEmptySections={true}
+                      dataSource={this.dataSource}
+                      renderRow={(rowData) => 
+                        <ListItem prescriptions={rowData} />
+                      }
+                    /> :
+                    <Text>The list is empty</Text>
+                  }
              </View>
           )
        }

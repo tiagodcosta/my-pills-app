@@ -3,6 +3,7 @@ import { Icon, Container, Content, View, Text } from 'native-base'
 
 import { connect } from 'react-redux'
 import _ from 'lodash'
+import { loadInitialItems } from '../actions'
 
 import { VictoryPie } from 'victory-pie-native'
 
@@ -17,6 +18,10 @@ class Report extends Component {
       tabBarLabel: 'Report',
       tabBarIcon: ({ tintColor }) =>
         <Icon style={{color: '#44ad8e' }} name="ios-stats" />
+  }
+
+  componentWillMount() {
+    this.props.loadInitialItems();
   }
 
   render() {
@@ -49,4 +54,4 @@ const mapStateToProps = state => {
 
 }
 
-export default connect(mapStateToProps)(Report);
+export default connect(mapStateToProps, {loadInitialItems})(Report);
