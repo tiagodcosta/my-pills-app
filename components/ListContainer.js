@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, ListView } from 'react-native'
-import { Container, Content, Icon, Text } from 'native-base'
+import { Container, Content, Icon, Text, Thumbnail } from 'native-base'
 
 import { connect } from 'react-redux'
 import _ from 'lodash'
@@ -21,6 +21,7 @@ class ListContainer extends Component {
   }
 
   renderInitialView() {
+    const imgMessage = require('../images/icon-pills-bottle.png')
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
       });
@@ -33,7 +34,7 @@ class ListContainer extends Component {
           return(
               <View>
                   <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e'}}>Your list of medications</Text>                  
-                  {(this.dataSource == null) ?
+                  {(this.dataSource.getRowCount() != 0) ?
                   <ListView
                       enableEmptySections={true}
                       dataSource={this.dataSource}
@@ -41,7 +42,10 @@ class ListContainer extends Component {
                         <ListItem prescriptions={rowData} />
                       }
                     /> :
-                    <Text>The list is empty</Text>
+                    <View>
+                    <Thumbnail round large source={imgMessage} style={{alignSelf: 'center', marginTop: 100}} />
+                    <Text style={{alignSelf: 'center', marginTop: 5}}>Here your list of prescriptions will be displayed. Add some of them by tapping in the add icon</Text>
+                    </View>
                   }
              </View>
           )
