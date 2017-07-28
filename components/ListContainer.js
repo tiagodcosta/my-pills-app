@@ -44,7 +44,7 @@ class ListContainer extends Component {
                     /> :
                     <View>
                     <Thumbnail round large source={imgMessage} style={{alignSelf: 'center', marginTop: 100}} />
-                    <Text style={{alignSelf: 'center', marginTop: 5}}>Here your list of prescriptions will be displayed. Add some of them by tapping in the add icon</Text>
+                    <Text style={{alignSelf: 'center', marginTop: 50}}>Here your list of prescriptions will be displayed. Add some of them by tapping in the add icon</Text>
                     </View>
                   }
              </View>

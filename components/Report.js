@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Icon, Container, Content, View, Text } from 'native-base'
+import { Icon, Container, Content, View, Text, Thumbnail } from 'native-base'
 
 import { connect } from 'react-redux'
 import _ from 'lodash'
@@ -26,18 +26,30 @@ class Report extends Component {
 
   render() {
     const dataGraphic = _.toArray(this.props.prescriptionData)
+    const imgMessage = require('../images/icon-report.png')
     return (
       <Container style={{justifyContent: 'center', alignItems: 'center'}}>
         <Content padder>
-          <VictoryPie
-            width={350}
-            colorScale="green"
-            x="name"
-            y="quantity"
-            data={dataGraphic}
-            labelRadius={135}
-          />
-          <Text>How much prescriptions you have consumed. The number is based on the quantity of units consumed</Text>
+          <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e'}}>Your report</Text>                  
+          {(dataGraphic != 0) ?
+          <View>
+            <VictoryPie
+              width={350}
+              colorScale="green"
+              x="name"
+              y="quantity"
+              data={dataGraphic}
+              labelRadius={135}
+            /> 
+            <Text>How much prescriptions you have consumed. The number is based on the quantity of units consumed</Text>
+          </View>
+            :
+          <View>
+            <Thumbnail round large source={imgMessage} style={{alignSelf: 'center', marginTop: 100}} />
+            <Text style={{marginTop: 50}}>Here a graphic will show you the prescriptions you have consumed</Text>
+          </View>
+          }
+          
       </Content>
       </Container>
     )
