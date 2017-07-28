@@ -46,7 +46,7 @@ class Report extends Component {
             :
           <View>
             <Thumbnail round large source={imgMessage} style={{alignSelf: 'center', marginTop: 100}} />
-            <Text style={{marginTop: 50}}>Here a graphic will show you the prescriptions you have consumed</Text>
+            <Text style={{alignSelf: 'center', marginTop: 50, textAlign: 'center', paddingLeft: 20, paddingRight: 20}}>Here a graphic will show you how many prescriptions you have consumed</Text>
           </View>
           }
           

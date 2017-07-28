@@ -1,8 +1,8 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 4764,
-  "expoServerNgrokUrl": "https://jj-n46.tiagodcosta.my-pills-app.exp.direct",
-  "packagerNgrokUrl": "https://packager.jj-n46.tiagodcosta.my-pills-app.exp.direct",
-  "ngrokPid": 4788
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
