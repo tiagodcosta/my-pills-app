@@ -30,7 +30,7 @@ class Report extends Component {
     return (
       <Container style={{justifyContent: 'center', alignItems: 'center'}}>
         <Content padder>
-          <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e'}}>Your report</Text>                  
+          <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, fontSize: 18, color: '#44ad8e'}}>Your report</Text>                  
           {(dataGraphic != 0) ?
           <View>
             <VictoryPie

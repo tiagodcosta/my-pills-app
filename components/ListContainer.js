@@ -33,7 +33,7 @@ class ListContainer extends Component {
       } else {
           return(
               <View>
-                  <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e'}}>Your list of medications</Text>                  
+                  <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e', fontSize: 18}}>Your list of medications</Text>                  
                   {(this.dataSource.getRowCount() != 0) ?
                   <ListView
                       enableEmptySections={true}

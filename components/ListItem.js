@@ -14,8 +14,8 @@ const ListItem = (props) => {
       <View style={{flexDirection: 'row', alignItems: 'center', backgroundColor: '#44ad8e', marginBottom: 5, padding: 5 }}>
         <Thumbnail round small source={imgList} style={{marginRight: 5}} />
           <View style={{flexDirection: 'column'}}>
-            <Text style={{fontSize: 16, color: '#8e44ad'}}>{props.prescriptions.name}</Text>
-            <Text style={{color: '#bdc3c7', fontSize: 14}}>{props.prescriptions.frequency}</Text>
+            <Text style={{fontSize: 18, color: '#8e44ad'}}>{props.prescriptions.name}</Text>
+            <Text style={{fontSize: 16, color: '#fff'}}>{props.prescriptions.frequency}</Text>
           </View>
       </View>
     </TouchableWithoutFeedback>

@@ -23,7 +23,7 @@ class AddItem extends Component {
     return (
       <Container showsVerticalScrollIndicator={false}>
         <Content padder>
-          <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, color: '#44ad8e'}}>Add new prescription</Text>
+          <Text style={{alignSelf: 'center', marginTop: 20, marginBottom: 20, fontSize: 18, color: '#44ad8e'}}>Add new prescription</Text>
         <Form>
            <Item>
              <Input placeholder="Name" value={this.props.name} onChangeText={value => this.props.formUpdate({prop: 'name', value})}/>

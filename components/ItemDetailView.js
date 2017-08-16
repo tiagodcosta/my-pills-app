@@ -5,7 +5,6 @@ import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 import Loader from './Loader'
-import { navigation } from 'react-navigation'
 
 class ItemDetailView extends Component {
   constructor() {
@@ -73,7 +72,6 @@ class ItemDetailView extends Component {
   }
 
   render() {
-    const {navigate} = this.props.navigation;
     return(
           <Container>
             <Content showsVerticalScrollIndicator={false}>
@@ -106,12 +104,6 @@ class ItemDetailView extends Component {
                       <Text style={{color: '#8e44ad'}}>Edit</Text>
                     </Button>
                   </Left>
-                  <Body>
-                    <Button transparent onPress={() => navigate('Prescriptions')}>
-                      <Icon style={{color: '#8e44ad', marginRight: 5}} name="arrow-round-back" />
-                      <Text style={{color: '#8e44ad'}}>Back</Text>
-                    </Button>  
-                  </Body>
                   <Right>
                     <Button transparent onPress={() => {this.props.deleteItem(this.props.prescription.uid)}}>
                       <Icon style={{color: '#8e44ad', marginRight: 5}} name="trash" />
