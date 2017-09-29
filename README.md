@@ -2,7 +2,7 @@
 
 Mobile app that lets people manage and get more information about their prescriptions
 
-Made with ReactNative and Iodine API
+Made with ReactNative, Firebase and Iodine API
 
 ![](https://s26.postimg.org/8fdv4gwpl/mypills01.png)
 
