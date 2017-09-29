@@ -1,7 +1,12 @@
-# my-pills-app
+# My Pills App
 
-![](https://s21.postimg.org/54y8ulug7/2017-08-15_23.26.29.png)
-![](https://s21.postimg.org/43y05hdgn/2017-08-15_23.26.32.png)
-![](https://s21.postimg.org/wuutvjjaf/2017-08-15_23.26.37.png)
+Mobile app that lets people manage and get more information about their prescriptions
+
+Made with ReactNative and Iodine API
+
+![](https://s26.postimg.org/8fdv4gwpl/mypills01.png)
+
+![](https://s26.postimg.org/gm5uw1ms9/mypills02.png)
+
 
 
