@@ -1,4 +1,4 @@
-# My Pills App
+# [WIP] My Pills App
 
 Mobile app that lets people manage and get more information about their prescriptions
 
